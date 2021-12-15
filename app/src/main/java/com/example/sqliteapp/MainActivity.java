@@ -17,8 +17,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editName,editSurname,editMarks ,editTextId;
     Button btnAddData;
     Button btnviewAll;
-    Button btnDelete;
-
+    Button btnDelete,btnClear;
     Button btnviewUpdate;
 
     @Override
@@ -35,11 +34,29 @@ public class MainActivity extends AppCompatActivity {
         btnviewAll = (Button)findViewById(R.id.button_viewAll);
         btnviewUpdate= (Button)findViewById(R.id.button_update);
         btnDelete= (Button)findViewById(R.id.button_delete);
+        btnClear =(Button)findViewById(R.id.clearbtn);
         AddData();
         viewAll();
         UpdateData();
         DeleteData();
+        ClearData();
+
     }
+
+    private void ClearData() {
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Set the  EditText empty
+               editName.setText("");
+               editMarks.setText("");
+               editSurname.setText("");
+               editTextId.setText("");
+               
+            }
+        });
+    }
+
     public void DeleteData() {
         btnDelete.setOnClickListener(
                 new View.OnClickListener() {
