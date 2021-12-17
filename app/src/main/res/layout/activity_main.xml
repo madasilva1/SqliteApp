@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Room"
+        android:text="Name"
         android:id="@+id/textView"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="10dp"
@@ -26,7 +26,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Status"
+        android:text="Surname"
         android:id="@+id/textView2"
         android:layout_marginLeft="100dp"
        />
@@ -41,7 +41,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date"
+        android:text="Marks"
         android:id="@+id/textView3"
        android:layout_marginLeft="100dp"
         />
@@ -105,7 +105,7 @@
         android:id="@+id/clearbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Clear "
+        android:text="Clear Text"
         android:layout_marginLeft="100dp"
         />
 
