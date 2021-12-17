@@ -1,6 +1,8 @@
 package com.example.sqliteapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;import android.app.AlertDialog;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -14,21 +16,21 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper myDb;
-    EditText editName,editSurname,editMarks ,editTextId;
+    EditText editRoom,editStatus,editDate ,editTextId;
     Button btnAddData;
     Button btnviewAll;
     Button btnDelete,btnClear;
     Button btnviewUpdate;
-
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myDb = new DatabaseHelper(this);
 
-        editName = (EditText)findViewById(R.id.editText_name);
-        editSurname = (EditText)findViewById(R.id.editText_surname);
-        editMarks = (EditText)findViewById(R.id.editText_Marks);
+        editRoom = (EditText)findViewById(R.id.editText_name);
+        editStatus = (EditText)findViewById(R.id.editText_surname);
+        editDate = (EditText)findViewById(R.id.editText_Marks);
         editTextId = (EditText)findViewById(R.id.editText_id);
         btnAddData = (Button)findViewById(R.id.button_add);
         btnviewAll = (Button)findViewById(R.id.button_viewAll);
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btnDelete= (Button)findViewById(R.id.button_delete);
         btnClear =(Button)findViewById(R.id.clearbtn);
         AddData();
-        viewAll();
+       // viewAll();
         UpdateData();
         DeleteData();
         ClearData();
@@ -48,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Set the  EditText empty
-               editName.setText("");
-               editMarks.setText("");
-               editSurname.setText("");
+               editRoom.setText("");
+               editStatus.setText("");
+               editDate.setText("");
                editTextId.setText("");
-               
+
             }
         });
     }
@@ -77,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         boolean isUpdate = myDb.updateData(editTextId.getText().toString(),
-                                editName.getText().toString(),
-                                editSurname.getText().toString(),editMarks.getText().toString());
+                                editRoom.getText().toString(),
+                                editStatus.getText().toString(),editDate.getText().toString());
                         if(isUpdate == true)
                             Toast.makeText(MainActivity.this,"Data Update",Toast.LENGTH_LONG).show();
                         else
@@ -92,18 +94,28 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean isInserted = myDb.insertData(editName.getText().toString(),
-                                editSurname.getText().toString(),
-                                editMarks.getText().toString() );
+                        String room = editRoom.getText().toString();
+                        String status = editStatus.getText().toString();
+                        String date = editDate.getText().toString();
+                        DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+                        databaseHelper.insertData(room,status,date);
+                       // intent = new Intent(MainActivity.this,Details.class);
+                       // startActivity(intent);
+                        Toast.makeText(getApplicationContext(), "Details Inserted Successfully",Toast.LENGTH_SHORT).show();
+                       /* boolean isInserted = myDb.insertData(editRoom.getText().toString(),
+                                editRoom.getText().toString(),
+                                editDate.getText().toString() );
                         if(isInserted == true)
                             Toast.makeText(MainActivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
                         else
                             Toast.makeText(MainActivity.this,"Data not Inserted",Toast.LENGTH_LONG).show();
+
+                        */
                     }
                 }
         );
     }
-
+/*
     public void viewAll() {
         btnviewAll.setOnClickListener(
                 new View.OnClickListener() {
@@ -119,17 +131,19 @@ public class MainActivity extends AppCompatActivity {
                         StringBuffer buffer = new StringBuffer();
                         while (res.moveToNext()) {
                             buffer.append("Id :"+ res.getString(0)+"\n");
-                            buffer.append("Name :"+ res.getString(1)+"\n");
-                            buffer.append("Surname :"+ res.getString(2)+"\n");
-                            buffer.append("Marks :"+ res.getString(3)+"\n\n");
+                            buffer.append("Room :"+ res.getString(1)+"\n");
+                            buffer.append("Status :"+ res.getString(2)+"\n");
+                            buffer.append("Date :"+ res.getString(3)+"\n\n");
                         }
 
-                        // Show all data
+                        // Show all dataed
                         showMessage("Data",buffer.toString());
                     }
                 }
         );
     }
+
+ */
 
     public void showMessage(String title,String Message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
