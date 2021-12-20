@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
                             buffer.append("(");
                             buffer.append(KEY_ID);
                             buffer.append(KEY_ROOM);
-                            buffer.append(KEY_STATUS);
+                          
                           
                           */
                             buffer.append("Id :"+ res.getString(0)+"\n");
