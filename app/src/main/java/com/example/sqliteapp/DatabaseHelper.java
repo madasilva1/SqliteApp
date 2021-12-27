@@ -16,6 +16,10 @@ import java.util.HashMap;
 /**
      * Created by ProgrammingKnowledge on 4/3/2015.
      */
+
+/**
+ * Nothing to say
+ */
     public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Hotel.db";
     public static final String TABLE_NAME = "hotel_table";
