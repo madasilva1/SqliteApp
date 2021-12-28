@@ -21,6 +21,9 @@ import android.widget.Toast;
 import com.example.sqliteapp.Details;
 
 public class MainActivity extends AppCompatActivity {
+    /*
+    testing push origin
+    */
     DatabaseHelper myDb;
     EditText editRoom,editStatus,editDate ,editTextId;
     Button btnAddData;
