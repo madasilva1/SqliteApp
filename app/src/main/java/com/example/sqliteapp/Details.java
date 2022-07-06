@@ -10,7 +10,7 @@ import android.widget.SimpleAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Details extends AppCompatActivity {
+public class Details extends AppCompatActivity{
     Intent intent;
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
