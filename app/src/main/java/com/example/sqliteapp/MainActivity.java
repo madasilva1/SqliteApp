@@ -14,6 +14,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    /*
+    testing push origin
+    */
     DatabaseHelper myDb;
     EditText editRoom,editStatus,editDate ,editTextId;
     Button btnAddData;
@@ -132,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                             buffer.append("(");
                             buffer.append(KEY_ID);
                             buffer.append(KEY_ROOM);
-                            buffer.append(KEY_STATUS);
+                          
                           
                           */
                             buffer.append("Id :"+ res.getString(0)+"\n");
